@@ -103,7 +103,16 @@ public class FuncionarioService {
     @Produces(MediaType.APPLICATION_JSON)
     @PUT
     public Response FuncionarioUpdate(@PathParam("id") Integer id, Funcionario Funcionario) {
-        return Response.status(Status.NOT_IMPLEMENTED).build();
+    	try {
+    		if (dao.find(id)==null) {
+    			return Response.status(Status.NOT_FOUND).build();
+    		}
+    		Funcionario funcionario = dao.update(Funcionario);
+    		return Response.status(Status.OK).entity(funcionario).build();
+    		
+    	}catch (Exception e) {
+    		return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao Atualizar Funcionarios").build();
+    	}
     }
 
     /**
