@@ -116,7 +116,18 @@ public class FuncionarioService {
     @Produces(MediaType.APPLICATION_JSON)
     @DELETE
     public Response FuncionarioDelete(@PathParam("id") Integer id) {
-        return Response.status(Status.NOT_IMPLEMENTED).build();
+        
+    	try {
+    		if (dao.find(id) == null) {
+    			return Response.status(Status.NOT_FOUND).build();
+    		}
+    		dao.delete(id);
+    			return Response.status(Status.NO_CONTENT).build();
+    		
+    	}catch (Exception e) {
+    			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+    	}
+        
     }
 
     /**
