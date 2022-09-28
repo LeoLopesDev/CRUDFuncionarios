@@ -1,4 +1,4 @@
-package com.hepta.setor.persistence;
+package com.hepta.funcionarios.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.hepta.funcionarios.entity.Setor;
-import com.hepta.funcionarios.persistence.HibernateUtil;
 
 public class SetorDAO {
 

@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.hepta.funcionarios.entity.Setor;
-import com.hepta.setor.persistence.SetorDAO;
+import com.hepta.funcionarios.persistence.SetorDAO;
 
 @Path("/setores")
 public class SetorService {
