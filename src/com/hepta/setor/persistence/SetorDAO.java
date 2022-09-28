@@ -56,5 +56,19 @@ public class SetorDAO {
 			}
 			return Setores;
 		}
-
+		
+		public void save(Setor Setor) throws Exception {
+			EntityManager em = HibernateUtil.getEntityManager();
+			try {
+				em.getTransaction().begin();
+				em.persist(Setor);
+				em.getTransaction().commit();
+			} catch (Exception e) {
+				em.getTransaction().rollback();
+				throw new Exception(e);
+			} finally {
+				em.close();
+			}
+		
+		}	
 }
