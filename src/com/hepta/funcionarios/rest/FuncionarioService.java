@@ -103,6 +103,7 @@ public class FuncionarioService {
     		if (dao.find(id)==null) {
     			return Response.status(Status.NOT_FOUND).build();
     		}
+    		Funcionario.setId(id);
     		Funcionario funcionario = dao.update(Funcionario);
     		return Response.status(Status.OK).entity(funcionario).build();
     		
